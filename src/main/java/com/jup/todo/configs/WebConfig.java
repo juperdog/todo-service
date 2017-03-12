@@ -1,4 +1,4 @@
-package com.jup.todo.config;
+package com.jup.todo.configs;
 
 import java.util.List;
 

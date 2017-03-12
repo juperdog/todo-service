@@ -1,4 +1,4 @@
-package com.jup.todo.response;
+package com.jup.todo.controllers;
 
 import javax.persistence.EntityNotFoundException;
 import javax.validation.ConstraintViolationException;
@@ -8,6 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.jup.todo.response.Response;
+import com.jup.todo.response.ResponseModel;
 
 @RestController
 @RequestMapping("/api/v1")

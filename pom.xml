@@ -58,6 +58,16 @@
 		<artifactId>mysql-connector-java</artifactId>
 		<version>5.1.40</version>
 	</dependency>
+	<dependency>
+		<groupId>io.springfox</groupId>
+		<artifactId>springfox-swagger2</artifactId>
+		<version>2.6.1</version>
+	</dependency>
+	<dependency>
+		<groupId>io.springfox</groupId>
+		<artifactId>springfox-swagger-ui</artifactId>
+		<version>2.6.1</version>
+	</dependency>
   </dependencies>
 
   <build>
@@ -67,6 +77,30 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <formats>
+                        <format>html</format>
+                        <format>xml</format>
+                    </formats>
+                    <!-- wasank: turn on quite mode because cobertura has an issue with lambda -->
+                    <!-- please check https://github.com/cobertura/cobertura/issues/274 -->
+                    <quiet>true</quiet>
+                    <instrumentation>
+                        <ignoreTrivial>true</ignoreTrivial>
+                        <excludes>
+                            <exclude>com/jup/todo/configs/*</exclude>
+                            <exclude>com/jup/todo/response/*</exclude>
+                            <exclude>com/jup/todo/todo/entities/*</exclude>
+                            <exclude>com/jup/todo/todo/repositories/*</exclude>
+                            <exclude>com/jup/todo/Application.java</exclude>
+                        </excludes>
+                    </instrumentation>
+                </configuration>
+            </plugin>
 		</plugins>
   </build>
 </project>
