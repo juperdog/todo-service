@@ -11,6 +11,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.validator.constraints.NotBlank;
 
+
 @Entity
 @Table(name = "todo")
 public class Todo {
@@ -26,6 +27,9 @@ public class Todo {
 	
 	@Column(name = "data", nullable = false)
 	private String data;
+	
+	@Column(name = "status", nullable = false)
+	private String status;
 
 	public Long getId() {
 		return id;
@@ -50,12 +54,20 @@ public class Todo {
 	public void setData(String data) {
 		this.data = data;
 	}
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	@Override
 	public String toString() {
-		return "Todo [id=" + id + ", title=" + title + ", data=" + data + "]";
+		return "Todo [id=" + id + ", title=" + title + ", data=" + data + ", status=" + status + "]";
 	}
-	
+
 	@PrePersist
 	public void prePersist(){
 		

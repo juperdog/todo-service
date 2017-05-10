@@ -45,9 +45,20 @@ public class TodoService {
 		if(qObj != null){
 			qObj.setTitle(todo.getTitle());
 			qObj.setData(todo.getData());
+			qObj.setStatus(todo.getStatus());
 			return todoRepo.save(qObj);
 		}else{
 			throw new EntityNotFoundException("Todo["+todo.getId()+"] Not Found");
+		}
+	}
+	
+	public Todo updateStatus(Long id, String status){
+		Todo qObj = todoRepo.findOne(id);
+		if(qObj != null){
+			qObj.setStatus(status);
+			return todoRepo.save(qObj);
+		}else{
+			throw new EntityNotFoundException("Todo["+id+"] Not Found");
 		}
 	}
 	

@@ -53,4 +53,9 @@ public class TodoController extends AbstractDefaultController{
 		todoService.deleteTodo(id);
 		return new ResponseModel(Response.SUCCESS, "").build(HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/todos/{id}/status/{status}", method = RequestMethod.PUT)
+	public HttpEntity<ResponseModel> updateTodo(@PathVariable("id") long id, @PathVariable("status") String status) {
+		return new ResponseModel(Response.SUCCESS, todoService.updateStatus(id, status)).build(HttpStatus.OK);
+	}
 }
